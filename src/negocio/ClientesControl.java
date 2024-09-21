@@ -26,7 +26,7 @@ public class ClientesControl {
         List<Cliente> lista = new ArrayList<>();
         lista.addAll(DATOS.listar(texto));
 
-        String[] titulos = {"id_cliente", "nombre", "direccion", "telefono", "email", "fecha_registro", "condicion"};  
+        String[] titulos = {"id_cliente", "Nombre", "Direccion", "Telefono", "Email", "Fecha_Registro", "Condicion"};  
         this.modeloTabla = new DefaultTableModel(null, titulos);
 
         String condicion;
@@ -56,7 +56,7 @@ public class ClientesControl {
     
     
     // Metodo para actualizar datos de la categoria
-    public String actualizar(int id, String nombre, String nombreAnt, String direccion, int telefono, String email, String fecha_registro, boolean condicion) {
+    public String actualizar(int id, String nombre, String nombreAnt, String direccion, int telefono, String email, String fecha_registro) {
     // Verificar si el nombre es el mismo que el anterior
     if (nombre.equals(nombreAnt)) {
         obj.setId_cliente(id);
@@ -65,7 +65,6 @@ public class ClientesControl {
         obj.setTelefono(telefono);
         obj.setEmail(email);
         obj.setFecha_registro(fecha_registro);
-        obj.setCondicion(condicion); // Asegurarse de asignar el valor de condicion correctamente
 
         // Intentar actualizar los datos
         if (DATOS.actualizar(obj)) {
@@ -84,7 +83,6 @@ public class ClientesControl {
             obj.setTelefono(telefono);
             obj.setEmail(email);
             obj.setFecha_registro(fecha_registro);
-            obj.setCondicion(condicion); // Asegurarse de asignar el valor de condicion correctamente
 
             // Intentar actualizar los datos
             if (DATOS.actualizar(obj)) {
@@ -98,7 +96,7 @@ public class ClientesControl {
 
     //metodo para registrar categoria
     // Metodo para registrar cliente
-public String insertar(int id, String nombre, String direccion, int telefono, String email, String fecha_registro, boolean condicion) {
+    public String insertar(int id, String nombre, String direccion, int telefono, String email, String fecha_registro) {
     // Verificar si el nombre ya existe en la base de datos
     if (DATOS.existe(nombre)) {
         return "El nombre del cliente ya existe en nuestra BD";
@@ -109,7 +107,6 @@ public String insertar(int id, String nombre, String direccion, int telefono, St
         obj.setTelefono(telefono);
         obj.setEmail(email);
         obj.setFecha_registro(fecha_registro);
-        obj.setCondicion(condicion); // Asegurarse de asignar el valor de condicion correctamente
 
         // Intentar insertar los datos
         if (DATOS.insertar(obj)) {
@@ -118,13 +115,13 @@ public String insertar(int id, String nombre, String direccion, int telefono, St
             return "Error al registrar el cliente";
         }
     }
-}
+    }
     public int total(){
         return DATOS.total();
     }  
     public int totalMostrado(){
         return this.registrosMostrados;
-    }
+   }
 
     
     //metodo para desactivar categoria
@@ -143,4 +140,6 @@ public String insertar(int id, String nombre, String direccion, int telefono, St
             return "No se puede activar el producto";
         }
     }
+
+ 
 }

@@ -1,7 +1,10 @@
 
 package entidades;
 
+
 public class Cliente {
+    
+    
     
     //variables
     private int id_cliente;
@@ -26,6 +29,11 @@ public class Cliente {
         this.email = email;
         this.fecha_registro = fecha_registro;
         this.condicion = condicion;
+    }
+    
+    public Cliente(int id_cliente, String nombre){
+        this.id_cliente= id_cliente;
+        this.Nombre= nombre;
     }
     
     
@@ -93,12 +101,6 @@ public class Cliente {
     public String toString() {
         return "Cliente{" + "id_cliente=" + id_cliente + ", Nombre=" + Nombre + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + ", fecha_registro=" + fecha_registro + ", condicion=" + condicion + '}';
     }
-    
-
-    
-    
-
-    
 }
 
     
